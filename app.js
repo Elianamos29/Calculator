@@ -65,9 +65,23 @@ keys.addEventListener('click', e => {
         }
 
         if (action === 'clear') {
+            if (key.textContent === 'AC') {
+                calculator.dataset.firstValue = ''
+                calculator.dataset.modValue = ''
+                calculator.dataset.previousKeyType = ''
+                calculator.dataset.operator = ''
+            } else {
+
+                key.textContent = 'AC'
+            }
+
             display.textContent = '0'
-            key.textContent = 'CE'
             calculator.dataset.previousKeyType = 'clear'
+        }
+
+        if (action !== 'clear') {
+            const clearButton = calculator.querySelector('[data-action = clear')
+            clearButton.textContent = 'CE'
         }
 
         if (action === 'calculate') {
@@ -95,21 +109,11 @@ keys.addEventListener('click', e => {
 })
 
 const calculate = (n1, op, n2) => {
-    let result = ''
+    const firstNum = parseFloat(n1)
+    const secondNum = parseFloat(n2)
 
-    if (op === 'add') {
-        result = parseFloat(n1) + parseFloat(n2)
-    }
-
-    else if (op === 'subtract') {
-        result = parseFloat(n1) - parseFloat(n2)
-    }
-
-    else if (op === 'multiply') {
-        result = parseFloat(n1) * parseFloat(n2)
-    } else {
-        result = parseFloat(n1) / parseFloat(n2)
-    }
-
-    return result
+    if (op === 'add') return firstNum + secondNum
+    if (op === 'subtract') return firstNum - secondNum
+    if (op === 'multiply') return firstNum * secondNum
+    if (op === 'divide') return firstNum / secondNum
 }
