@@ -92,7 +92,7 @@ body {
 
 .calculator {
     border-radius: 12px;
-    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.5);
     margin-left: auto;
     margin-right: auto;
     margin-top: 2em;
@@ -130,7 +130,7 @@ body {
     content: "";
     left: 0;
     opacity: 0.3;
-    position: relative;
+    position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
